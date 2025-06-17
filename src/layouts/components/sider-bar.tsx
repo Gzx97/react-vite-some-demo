@@ -11,23 +11,31 @@ import { useSelector, useSettingsStore } from "@/stores";
 const findSelectedKeys = (items: MenuProps["items"], pathname: string, path: string[] = []) => {
   const selectedKeys: string[] = [];
   let openKeys: string[] = [];
-
   const travel = (items: MenuProps["items"], pathname: string, path: string[]) => {
+    if (!items || items.length === 0 || !pathname) return false;
+
     for (const item of items!) {
       if (item!.key === pathname) {
         selectedKeys.push(item!.key);
         openKeys = [...path];
-        return;
+        return true; // 找到匹配的菜单项，返回true
       }
       if ((item as any).children) {
         path.push(item!.key as string);
-        travel((item as any).children, pathname, path);
-        path.pop();
+        const found = travel((item as any).children, pathname, path);
+
+        if (!found) {
+          const parentPath = pathname.substring(0, pathname.lastIndexOf("/"));
+          travel((item as any).children, parentPath, path);
+        }
+        // path.pop();
       }
     }
+    return false; // 没有找到匹配的菜单项，返回false
   };
 
   travel(items, pathname, path);
+
   return { selectedKeys, openKeys };
 };
 
@@ -59,8 +67,8 @@ const items: MenuProps["items"] = [
   },
   {
     icon: <BarChartOutlined />,
-    label: <Link to={ROUTE_PATHS.echartsDemo}>Echarts Demo</Link>,
-    key: ROUTE_PATHS.echartsDemo,
+    label: <Link to={ROUTE_PATHS.sortTreeTable}>树形表格拖拽排序</Link>,
+    key: ROUTE_PATHS.sortTreeTable,
   },
 ];
 
@@ -78,6 +86,7 @@ export default function SiderBar() {
 
   useEffect(() => {
     if (location.pathname === "/") return;
+    console.log(location);
 
     const { selectedKeys, openKeys } = findSelectedKeys(items, location.pathname);
     setSelectedKeys(selectedKeys);

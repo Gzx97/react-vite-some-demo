@@ -1,8 +1,8 @@
 import { createBrowserRouter, Navigate, type RouteObject } from "react-router-dom";
 import { ProgressBar } from "@/components/progress-bar";
-import { echartsDemoRoute } from "./modules/echarts-demo";
 import { landingRoute } from "./modules/landing";
 import { nestMenuRoute } from "./modules/nest-menu";
+import { sortTreeTableRoute } from "./modules/sort-tree-table";
 import { userManagerRoute } from "./modules/user-management";
 import { ROUTE_PATHS } from "@/constants/common";
 
@@ -28,7 +28,7 @@ const routes: RouteObject[] = [
       landingRoute,
       userManagerRoute,
       nestMenuRoute,
-      echartsDemoRoute,
+      sortTreeTableRoute,
     ],
   },
   {

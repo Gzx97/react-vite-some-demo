@@ -9,7 +9,7 @@ export default defineConfig({
   server: {
     port: 3008,
   },
-
+  css: {},
   plugins: [
     react(),
     { ...compression(), apply: "build" },

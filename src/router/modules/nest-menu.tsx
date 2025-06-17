@@ -34,6 +34,14 @@ export const nestMenuRoute: RouteObject = {
         title: "二级菜单-2",
         crumb: () => <Link to={ROUTE_PATHS.subMenu2}>二级菜单-2</Link>,
       },
+      children: [
+        {
+          path: "/nest-menu/sub-menu-2/sub-menu-2-1",
+          lazy: async () => ({
+            Component: (await import("@/pages/nest-menu/sub-menu-2")).default,
+          }),
+        },
+      ],
     },
   ],
 };

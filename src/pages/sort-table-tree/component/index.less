@@ -1,0 +1,37 @@
+.drag-overlay {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px dashed #1890ff;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.drop-over-downward td {
+  border-bottom: 2px dashed #1890ff !important;
+  margin-bottom: 10px !important;
+  ::after {
+    content: "向下插入";
+    font-size: 12px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: 2px;
+  }
+}
+
+tr.drop-over-upward td {
+  border-top: 2px dashed #d1d9e0;
+  ::after {
+    content: "向上插入";
+    font-size: 12px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+  }
+}
+
+tr.drop-over-inside td {
+  background-color: #1890ff20;
+}
