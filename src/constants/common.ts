@@ -7,5 +7,6 @@ export const ROUTE_PATHS = {
   subMenu1: "/nest-menu/sub-menu-1",
   subMenu2: "/nest-menu/sub-menu-2",
   sortTreeTable: "/sort-tree-table",
+  treeMenuSelect: "/tree-menu-select",
   echartsDemo: "/echarts-demo",
 };

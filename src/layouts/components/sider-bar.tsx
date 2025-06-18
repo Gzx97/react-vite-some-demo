@@ -70,6 +70,11 @@ const items: MenuProps["items"] = [
     label: <Link to={ROUTE_PATHS.sortTreeTable}>树形表格拖拽排序</Link>,
     key: ROUTE_PATHS.sortTreeTable,
   },
+  {
+    icon: <BarChartOutlined />,
+    label: <Link to={ROUTE_PATHS.treeMenuSelect}>树形选择器</Link>,
+    key: ROUTE_PATHS.treeMenuSelect,
+  },
 ];
 
 export default function SiderBar() {

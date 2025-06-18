@@ -3,3 +3,4 @@ interface Window {
   $modal?: Omit<import("antd/es/modal/confirm").ModalStaticFunctions, "warn">;
   $notification?: import("antd/es/notification/interface").NotificationInstance;
 }
+type ID = string | number;
