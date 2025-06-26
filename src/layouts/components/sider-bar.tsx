@@ -75,6 +75,17 @@ const items: MenuProps["items"] = [
     label: <Link to={ROUTE_PATHS.treeMenuSelect}>树形选择器</Link>,
     key: ROUTE_PATHS.treeMenuSelect,
   },
+  {
+    icon: <BarChartOutlined />,
+    label: ` Three-Demo`,
+    key: ROUTE_PATHS.threeDemo,
+    children: [
+      {
+        key: ROUTE_PATHS.threeDemo1,
+        label: <Link to={ROUTE_PATHS.threeDemo1}>threeDemo-1</Link>,
+      },
+    ],
+  },
 ];
 
 export default function SiderBar() {
