@@ -18,15 +18,28 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Set up Node
+
+      # 新增 pnpm 安装步骤
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: "npm"
+          cache: "pnpm" # 修改为 pnpm 缓存
+
+      # 使用 pnpm 安装依赖
       - name: Install dependencies
-        run: npm install
+        run: pnpm install --frozen-lockfile
+
+      # 使用 pnpm 执行构建
       - name: Build
-        run: npm run build
+        run: pnpm run build
+
+      # 以下步骤保持不变
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
