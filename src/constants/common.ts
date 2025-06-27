@@ -9,4 +9,8 @@ export const ROUTE_PATHS = {
   sortTreeTable: "/sort-tree-table",
   treeMenuSelect: "/tree-menu-select",
   echartsDemo: "/echarts-demo",
+
+  pointConfig: "/point-config",
+  pointConfigSettingPage: "/point-config/setting-page",
+  pointConfigViewPage: "/point-config/view-page",
 };

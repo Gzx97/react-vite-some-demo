@@ -1,0 +1,84 @@
+.wrapper {
+  width: calc(100vw - 230px);
+  height: calc(100vh - 123px);
+  position: relative;
+  overflow-y: overlay;
+}
+
+.pointConfigItemWrapper {
+  padding: 20px;
+  border: 1px dashed rgba(4, 27, 39, 1);
+  border-radius: 5px;
+
+  .pointFormInfo {
+    display: flex;
+    flex-wrap: wrap;
+    // gap: 30px;
+    padding-bottom: 10px;
+  }
+}
+.formWrapper {
+  .formRowWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 24px;
+  }
+  :global {
+    .ant-form-item {
+      margin: 0;
+    }
+  }
+  .sliderWrapper {
+    width: 500px;
+    flex-shrink: 1;
+  }
+}
+.lineConfigWrapper {
+  margin: 0 30px;
+  border: 1px black dotted;
+  border-radius: 5px;
+  padding: 10px;
+  position: relative;
+  .lineConfigTitle {
+    text-align: center;
+    margin: 0;
+    margin-bottom: 20px;
+  }
+  .formRowWrapper {
+    position: relative;
+    border-bottom: 1px solid black;
+    margin-bottom: 10px;
+    &:last-of-type {
+      border-bottom: none;
+    }
+    .dynamicDeleteButton {
+      position: absolute;
+      top: 5px;
+      right: 20px;
+      color: red;
+      font-size: 20px;
+    }
+  }
+}
+
+.ballWrapper {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  top: 0;
+  left: 0;
+  .ball {
+    background-color: red;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18;
+    font-weight: 800;
+    color: white;
+  }
+}

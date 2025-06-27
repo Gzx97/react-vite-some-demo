@@ -1,0 +1,40 @@
+:global {
+  .contextMenuPopover {
+    min-width: 60px;
+    .ant-popover-inner {
+      padding: 5px 0;
+      background-color: fade(#0096ff, 22);
+      border-radius: 3px;
+      border: 1px solid rgba(4, 133, 226, 1);
+      box-shadow: 0 0 5px 1px rgba(4, 133, 226, 1);
+    }
+    .contextMenu {
+      .statusItem {
+        cursor: pointer;
+        margin: 0;
+        padding: 3px;
+        font-size: 14px;
+        color: white;
+        text-align: center;
+        &:hover {
+          background-color: fade(#0096ff, 20);
+          color: #0096ff;
+        }
+        &.active {
+          color: #0096ff;
+        }
+      }
+    }
+
+    .btn {
+      display: flex;
+      justify-content: center;
+      padding: 10px;
+      padding-bottom: 0;
+      .ant-btn-primary {
+        background-color: #4096ff;
+        border-radius: 2px;
+      }
+    }
+  }
+}

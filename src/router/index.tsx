@@ -2,6 +2,7 @@ import { createBrowserRouter, Navigate, type RouteObject } from "react-router-do
 import { ProgressBar } from "@/components/progress-bar";
 import { landingRoute } from "./modules/landing";
 import { nestMenuRoute } from "./modules/nest-menu";
+import { pointConfigRoute } from "./modules/point-config";
 import { sortTreeTableRoute } from "./modules/sort-tree-table";
 import { treeMenuSelectRoute } from "./modules/tree-menu-select";
 import { userManagerRoute } from "./modules/user-management";
@@ -31,6 +32,7 @@ const routes: RouteObject[] = [
       nestMenuRoute,
       sortTreeTableRoute,
       treeMenuSelectRoute,
+      pointConfigRoute,
     ],
   },
   {

@@ -75,6 +75,21 @@ const items: MenuProps["items"] = [
     label: <Link to={ROUTE_PATHS.treeMenuSelect}>树形选择器</Link>,
     key: ROUTE_PATHS.treeMenuSelect,
   },
+  {
+    icon: <MenuOutlined />,
+    label: "点位配置",
+    key: ROUTE_PATHS.pointConfig,
+    children: [
+      {
+        key: ROUTE_PATHS.pointConfigSettingPage,
+        label: <Link to={ROUTE_PATHS.pointConfigSettingPage}>配置</Link>,
+      },
+      {
+        key: ROUTE_PATHS.pointConfigViewPage,
+        label: <Link to={ROUTE_PATHS.pointConfigViewPage}>展示</Link>,
+      },
+    ],
+  },
 ];
 
 export default function SiderBar() {
@@ -91,7 +106,6 @@ export default function SiderBar() {
 
   useEffect(() => {
     if (location.pathname === "/") return;
-    console.log(location);
 
     const { selectedKeys, openKeys } = findSelectedKeys(items, location.pathname);
     setSelectedKeys(selectedKeys);

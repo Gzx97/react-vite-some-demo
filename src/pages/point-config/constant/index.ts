@@ -1,0 +1,5 @@
+export enum ONLINE_STATUS {
+  ONLINE = "ONLINE",
+  OFFLINE = "OFFLINE",
+  UNKNOWN = "UNKNOWN",
+}
