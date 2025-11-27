@@ -6,8 +6,8 @@
   "packageManager": "pnpm@9.12.1",
   "engines": {
     "pnpm": ">=9.0.0",
-    "npm": "disabled",
-    "yarn": "disabled"
+    "npm": ">=999.999.999",
+    "yarn": ">=999.999.999"
   },
   "scripts": {
     "dev": "vite",
@@ -15,6 +15,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write \"**/*.{ts,tsx,js,json,css,less}\"",
+    "check:types": "tsc --build --noEmit",
     "preview": "vite preview",
     "prepare": "husky"
   },

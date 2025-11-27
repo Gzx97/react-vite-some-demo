@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { Button, Form, type FormProps, Input } from "antd";
 import { useLogin } from "../api";
-import { ROUTE_PATHS } from "@/constants/common";
+import { ROUTE_PATHS } from "@/router/route.constants";
 
 type FieldType = {
   username?: string;

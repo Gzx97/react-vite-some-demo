@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Button, Result } from "antd";
 import { ROUTE_PATHS } from "@/router/route.constants";
 
-export default function NotFound() {
+export default function CameraPoseVisualizer() {
   const navigate = useNavigate();
   return (
     <>

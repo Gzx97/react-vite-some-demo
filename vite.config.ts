@@ -6,7 +6,7 @@ import react from "@vitejs/plugin-react-swc";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/react-vite-some-demo/", // 重要：设置为仓库名称，末尾带斜杠
+  base: "/", // 重要：设置为仓库名称，末尾带斜杠
 
   server: {
     port: 3008,

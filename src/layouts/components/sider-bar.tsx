@@ -4,7 +4,7 @@ import { BarChartOutlined, HomeOutlined, MenuOutlined, UserOutlined } from "@ant
 import { Layout, Menu, type MenuProps } from "antd";
 import ReactIcon from "@/assets/svg/react.svg?react";
 import { useTheme } from "@/components/theme-provider";
-import { ROUTE_PATHS } from "@/constants/common";
+import { ROUTE_PATHS } from "@/router/route.constants";
 import { useSelector, useSettingsStore } from "@/stores";
 
 // 递归函数，找到匹配的菜单项
@@ -87,6 +87,17 @@ const items: MenuProps["items"] = [
       {
         key: ROUTE_PATHS.pointConfigViewPage,
         label: <Link to={ROUTE_PATHS.pointConfigViewPage}>展示</Link>,
+      },
+    ],
+  },
+  {
+    icon: <MenuOutlined />,
+    label: "three DEMO",
+    key: ROUTE_PATHS.three,
+    children: [
+      {
+        key: ROUTE_PATHS.threeCameraPoseVisualizer,
+        label: <Link to={ROUTE_PATHS.threeCameraPoseVisualizer}>配置</Link>,
       },
     ],
   },
