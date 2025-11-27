@@ -6,6 +6,7 @@ import {
   pointConfigRoute,
   ROUTE_PATHS,
   sortTreeTableRoute,
+  threeRoute,
   treeMenuSelectRoute,
   userManagerRoute,
 } from "./route.constants";
@@ -35,6 +36,7 @@ const routes: RouteObject[] = [
       sortTreeTableRoute,
       treeMenuSelectRoute,
       pointConfigRoute,
+      threeRoute,
     ],
   },
   {

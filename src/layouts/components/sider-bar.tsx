@@ -97,7 +97,7 @@ const items: MenuProps["items"] = [
     children: [
       {
         key: ROUTE_PATHS.threeCameraPoseVisualizer,
-        label: <Link to={ROUTE_PATHS.threeCameraPoseVisualizer}>配置</Link>,
+        label: <Link to={ROUTE_PATHS.threeCameraPoseVisualizer}>相机轨迹</Link>,
       },
     ],
   },

@@ -1,25 +1,21 @@
-import { Helmet } from "react-helmet-async";
-import { useNavigate } from "react-router-dom";
-import { Button, Result } from "antd";
-import { ROUTE_PATHS } from "@/router/route.constants";
+import { Card, Flex } from "antd";
+import CameraPoseVisualizer from "./components/CameraPoseVisualizer";
+import { cn } from "@/utils";
 
-export default function CameraPoseVisualizer() {
-  const navigate = useNavigate();
+export default function CameraPoseVisualizerPage() {
   return (
     <>
-      <Helmet>
-        <title>404 | {import.meta.env.VITE_APP_TITLE_SUFFIX}</title>
-      </Helmet>
-      <Result
-        status="404"
-        title="404"
-        subTitle="您访问的页面不存在。"
-        extra={
-          <Button type="primary" onClick={() => navigate(ROUTE_PATHS.landing)}>
-            返回首页
-          </Button>
-        }
-      />
+      <Flex>
+        <div className={cn("w-full h-96")}>
+          Three.js Demo Placeholder
+          <Card
+            style={{ height: 300, marginBottom: 24, padding: 0 }}
+            bodyStyle={{ padding: 0, height: "100%" }}
+          >
+            <CameraPoseVisualizer currentPose={null} history={[]} trajectoryLength={300} />
+          </Card>
+        </div>
+      </Flex>
     </>
   );
 }

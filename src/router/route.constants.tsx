@@ -166,8 +166,8 @@ export const threeRoute: RouteObject = {
   }),
   HydrateFallback: ProgressBar,
   handle: {
-    title: "轨迹DEMO",
-    crumb: () => "轨迹DEMO",
+    title: "THREE DEMO",
+    crumb: () => "THREE DEMO",
   },
   children: [
     {
