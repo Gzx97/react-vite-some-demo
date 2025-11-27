@@ -3,12 +3,18 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "packageManager": "pnpm@9.12.1",
+  "engines": {
+    "pnpm": ">=9.0.0",
+    "npm": "disabled",
+    "yarn": "disabled"
+  },
   "scripts": {
     "dev": "vite",
     "build": "rm -f tsconfig.app.tsbuildinfo tsconfig.node.tsbuildinfo && vite build --base=/react-vite-some-demo",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "format": "prettier --write '**/*.{js,ts,jsx,tsx}'",
+    "format": "prettier --write \"**/*.{ts,tsx,js,json,css,less}\"",
     "preview": "vite preview",
     "prepare": "husky"
   },
