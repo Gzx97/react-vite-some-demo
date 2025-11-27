@@ -39,7 +39,6 @@ jobs:
       - name: Build
         run: pnpm run build
 
-      # 以下步骤保持不变
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
