@@ -19,23 +19,22 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # 新增 pnpm 安装步骤
+      # 关键修改：将 pnpm 版本从 8 改为 9（或指定精确版本如 9.0.0）
       - name: Setup pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v2 # 也可以升级到 v3 保持最新
         with:
-          version: 8
+          version: 9 # 改为 9.x 版本，满足 >=9.0.0 要求
+          # 可选：指定精确版本，比如 version: 9.0.0
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: "pnpm" # 修改为 pnpm 缓存
+          cache: "pnpm"
 
-      # 使用 pnpm 安装依赖
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      # 使用 pnpm 执行构建
       - name: Build
         run: pnpm run build
 
