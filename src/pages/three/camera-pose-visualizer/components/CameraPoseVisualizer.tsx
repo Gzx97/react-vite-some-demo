@@ -13,19 +13,31 @@ const CameraPoseVisualizer: FC<{
   history: Pose[];
   trajectoryLength: number;
 }> = ({ currentPose, history, trajectoryLength }) => {
+  const pos = new THREE.Vector3(parseFloat("0.156"), parseFloat("0.35566"), parseFloat("0.3"));
+  const quat = new THREE.Quaternion(
+    parseFloat("0.44443"),
+    parseFloat("0.34455555"),
+    parseFloat("0.3"),
+    parseFloat("1"),
+  );
+  const testPose: Pose = { position: pos, quaternion: quat };
   // 创建一个 Ref 来引用 3D 组 (Group)，这个组将代表摄像头
   const groupRef = useRef<THREE.Group>(null!);
   const trajectoryRef = useRef<THREE.Points>(null!);
+
   // 使用 useEffect 来在 'pose' prop 变化时，命令式地更新 3D 对象的位姿
   // 这是 react-three-fiber 中与外部状态同步的推荐方式
   useEffect(() => {
-    if (currentPose && groupRef.current) {
+    if (groupRef.current) {
       // 将 ref 引用的 3D 对象的 position 和 quaternion
       // 设置为从 prop 接收到的新值
-      groupRef.current.position.copy(currentPose.position);
-      groupRef.current.quaternion.copy(currentPose.quaternion);
+      // groupRef.current.position.copy(currentPose.position);
+      // groupRef.current.quaternion.copy(currentPose.quaternion);
+      console.log("Current Pose Updated:", currentPose);
+      groupRef.current.position.copy(testPose.position);
+      groupRef.current.quaternion.copy(testPose.quaternion);
     }
-  }, [currentPose]); // 依赖项是 pose，当 pose 变化时此 effect 重新运行
+  }, [currentPose, testPose.position, testPose.quaternion]); // 依赖项是 pose，当 pose 变化时此 effect 重新运行
 
   // NOV011445: START - 内存泄漏的核心修复
   // 我们使用 useMemo 来创建一次几何体和固定大小的缓冲区。
