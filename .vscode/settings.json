@@ -1,8 +1,18 @@
 {
+  // 核心：禁用全量自动修复（never = 完全不触发）
   "editor.codeActionsOnSave": {
-    "source.fixAll": "explicit"
+    "source.fixAll": "never",
+    // 可选：仅保留ESLint自动修复（但排除死代码规则），不想保留则设为"never"
+    "source.fixAll.eslint": "always",
+    "source.organizeImports": "always" // 可选：保留自动整理导入
   },
+  // 保存时格式化（仅处理格式，不删代码）
   "editor.formatOnSave": true,
+  // 让ESLint彻底忽略死代码规则（即使开启ESLint自动修复也不删）
+  "eslint.rules.customizations": [
+    { "rule": "no-unreachable", "severity": "off" },
+    { "rule": "@typescript-eslint/no-unreachable", "severity": "off" }
+  ],
   "css.customData": [".vscode/tailwind.json"],
   "cSpell.words": [
     "clsx",
