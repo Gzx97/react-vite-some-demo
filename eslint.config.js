@@ -21,6 +21,10 @@ export default tseslint.config({
   },
   rules: {
     ...reactHooks.configs.recommended.rules,
+    // 禁用「不可达代码」检测（核心：防止删除return后的代码）
+    "no-unreachable": "off",
+    // TS项目需额外禁用@typescript-eslint的对应规则
+    "@typescript-eslint/no-unreachable": "off",
     "react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/ban-ts-comment": "off",
