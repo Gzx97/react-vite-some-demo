@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import MyChildren, { ChildrenMethods } from "./components/children";
+import MyChildren, { ChildrenMethods } from "./components/MyChildren";
 import styles from "./index.module.less";
 export default function SubNav1() {
   const childrenRef = useRef<ChildrenMethods | null>(null);
