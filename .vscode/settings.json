@@ -9,10 +9,10 @@
   // 保存时格式化（仅处理格式，不删代码）
   "editor.formatOnSave": true,
   // 让ESLint彻底忽略死代码规则（即使开启ESLint自动修复也不删）
-  "eslint.rules.customizations": [
-    { "rule": "no-unreachable", "severity": "off" },
-    { "rule": "@typescript-eslint/no-unreachable", "severity": "off" }
-  ],
+  // "eslint.rules.customizations": [
+  //   { "rule": "no-unreachable", "severity": "off" },
+  //   { "rule": "@typescript-eslint/no-unreachable", "severity": "off" }
+  // ],
   "css.customData": [".vscode/tailwind.json"],
   "cSpell.words": [
     "clsx",

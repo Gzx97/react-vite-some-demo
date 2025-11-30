@@ -44,7 +44,7 @@ export default function CameraPoseVisualizerPage() {
   >([]);
 
   // 轨迹最大长度
-  const trajectoryLength = 5;
+  const trajectoryLength = 100;
 
   // 模拟实时更新相机位姿（每秒生成一个新位姿）
   useEffect(() => {
@@ -66,7 +66,7 @@ export default function CameraPoseVisualizerPage() {
         }
         return newHistory;
       });
-    }, 500);
+    }, 100);
 
     return () => clearInterval(timer);
   }, [trajectoryLength]);

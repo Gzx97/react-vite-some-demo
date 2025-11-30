@@ -102,8 +102,6 @@ const CameraPoseVisualizer: FC<{
     return () => {
       // 销毁轨迹几何体
       geometry.dispose();
-      // geometry.attributes.position.dispose();
-      // geometry.attributes.color.dispose();
       // 清空Ref
       groupRef.current = null!;
       trajectoryRef.current = null!;
