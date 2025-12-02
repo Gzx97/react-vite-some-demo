@@ -1,18 +1,32 @@
 {
-  // 核心：禁用全量自动修复（never = 完全不触发）
-  "editor.codeActionsOnSave": {
-    "source.fixAll": "never",
-    // 可选：仅保留ESLint自动修复（但排除死代码规则），不想保留则设为"never"
-    "source.fixAll.eslint": "always",
-    "source.organizeImports": "always" // 可选：保留自动整理导入
-  },
-  // 保存时格式化（仅处理格式，不删代码）
+  // 1. 禁用 VS Code 内置格式化器，避免冲突
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "javascript.format.enable": false,
+  "typescript.format.enable": false,
+  "json.format.enable": false,
+  "html.format.enable": false,
+  "css.format.enable": false,
+  // 2. 强制使用项目中的 Prettier 配置
+  "prettier.requireConfig": true, // 必须读取项目 Prettier 配置才生效
+  "prettier.configPath": ".prettierrc", // 明确指定配置文件路径（如果命名不同需修改）
+  // 3. 缩进规则与 Prettier 保持一致
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": false, // 禁用自动检测，避免覆盖 2 空格规则
+  // 4. 保存时自动格式化（确保触发 Prettier）
   "editor.formatOnSave": true,
-  // 让ESLint彻底忽略死代码规则（即使开启ESLint自动修复也不删）
-  // "eslint.rules.customizations": [
-  //   { "rule": "no-unreachable", "severity": "off" },
-  //   { "rule": "@typescript-eslint/no-unreachable", "severity": "off" }
-  // ],
+  "editor.formatOnType": false, // 避免输入时频繁格式化干扰
+  // 5. 排除其他可能干扰的插件/规则
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true, // 保留 ESLint 自动修复（但仅修复质量问题）
+    "source.fixAll": false // 禁用其他工具的自动修复，避免覆盖 Prettier 格式
+  },
+  // 6. 确保 Prettier 处理所有相关文件类型
+  "prettier.documentSelectors": [
+    "**/*.{js,jsx,ts,tsx,json,md,html,css,scss,yaml,yml}"
+  ],
+  // 7. 禁用 Prettier 插件的默认规则（完全服从项目配置）
+  "prettier.useEditorConfig": false, // 禁用 .editorconfig 干扰（如果项目有这个文件，需同步规则）
   "css.customData": [
     ".vscode/tailwind.json"
   ],

@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-// OCT240015 START: 新增一个自定义的“粗箭头”组件
-
 import { FC } from "react";
 import * as THREE from "three";
 
