@@ -1,7 +1,6 @@
-// src/pages/three/camera-pose-visualizer/components/CameraPoseVisualizer.tsx
-import { FC, useEffect, useMemo, useRef } from "react";
 import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
+import { FC, useEffect, useMemo, useRef } from "react";
 import * as THREE from "three";
 import ThickArrow from "./ThickArrow";
 
@@ -103,8 +102,6 @@ const CameraPoseVisualizer: FC<{
     return () => {
       // 销毁轨迹几何体
       geometry.dispose();
-      // geometry.attributes.position.dispose();
-      // geometry.attributes.color.dispose();
       // 清空Ref
       groupRef.current = null!;
       trajectoryRef.current = null!;
@@ -112,11 +109,7 @@ const CameraPoseVisualizer: FC<{
   }, [geometry]);
 
   return (
-    <Canvas
-      camera={{ position: [3, 3, 3], fov: 75 }}
-      style={{ width: "100vw", height: "100vh" }}
-      gl={{ preserveDrawingBuffer: true }}
-    >
+    <Canvas camera={{ position: [3, 3, 3], fov: 75 }} gl={{ preserveDrawingBuffer: true }}>
       {/* 1. 光照系统 */}
       <ambientLight intensity={0.6} />
       <directionalLight position={[10, 10, 5]} intensity={1} castShadow />
