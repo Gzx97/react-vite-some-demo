@@ -13,7 +13,9 @@
   //   { "rule": "no-unreachable", "severity": "off" },
   //   { "rule": "@typescript-eslint/no-unreachable", "severity": "off" }
   // ],
-  "css.customData": [".vscode/tailwind.json"],
+  "css.customData": [
+    ".vscode/tailwind.json"
+  ],
   "cSpell.words": [
     "clsx",
     "cssinjs",

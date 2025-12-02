@@ -1,6 +1,6 @@
-import { FC, useEffect, useMemo, useRef } from "react";
 import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
+import { FC, useEffect, useMemo, useRef } from "react";
 import * as THREE from "three";
 import ThickArrow from "./ThickArrow";
 
