@@ -18,8 +18,8 @@
   "editor.formatOnType": false, // 避免输入时频繁格式化干扰
   // 5. 排除其他可能干扰的插件/规则
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true, // 保留 ESLint 自动修复（但仅修复质量问题）
-    "source.fixAll": false // 禁用其他工具的自动修复，避免覆盖 Prettier 格式
+    "source.fixAll.eslint": "explicit",
+    "source.fixAll": "never"
   },
   // 6. 确保 Prettier 处理所有相关文件类型
   "prettier.documentSelectors": [

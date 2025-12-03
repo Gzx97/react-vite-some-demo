@@ -1,21 +1,28 @@
 import { useNavigate } from "react-router-dom";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { Button, Form, type FormProps, Input } from "antd";
-import { useLogin } from "../api";
 import { ROUTE_PATHS } from "@/router/route.constants";
+import { login } from "@/api/modules/account/user";
+import { useRequest } from "ahooks";
 
 type FieldType = {
-  username?: string;
+  account?: string;
   password?: string;
 };
 
 export default function LoginForm() {
   const navigate = useNavigate();
 
-  const { mutate: onLogin, isPending } = useLogin();
-
+  // const { isPending, mutate: onLogin } = useMutation({
+  //   mutationFn: (params: FieldType) => login(params),
+  //   onSuccess: () => {},
+  //   onError: () => {},
+  // });
+  const { run: onLogin, loading } = useRequest(login, {
+    manual: true,
+  });
   const onFinish: FormProps<FieldType>["onFinish"] = (values) => {
-    if (isPending) return;
+    if (loading) return;
     onLogin(values);
     navigate(ROUTE_PATHS.landing);
     setTimeout(() => {
@@ -32,12 +39,12 @@ export default function LoginForm() {
 
   return (
     <Form
-      initialValues={{ username: "admin", password: "123456" }}
+      initialValues={{ account: "admin", password: "123456" }}
       onFinish={onFinish}
       onFinishFailed={onFinishFailed}
       autoComplete="off"
     >
-      <Form.Item name="username" rules={[{ required: true, message: "请输入手机号" }]}>
+      <Form.Item name="account" rules={[{ required: true, message: "请输入手机号" }]}>
         <Input addonBefore={<UserOutlined />} placeholder="请输入手机号" />
       </Form.Item>
 
@@ -46,7 +53,7 @@ export default function LoginForm() {
       </Form.Item>
 
       <Form.Item>
-        <Button type="primary" htmlType="submit" block loading={isPending}>
+        <Button type="primary" htmlType="submit" block loading={loading}>
           登录
         </Button>
       </Form.Item>

@@ -10,6 +10,16 @@ export default defineConfig({
 
   server: {
     port: 3008,
+    proxy: {
+      "/tenant-api": {
+        // target: 'http://localhost:8080/',
+        // target: 'http://dev.ems-frontend.jscoe.cn/',
+        // target: 'http://172.16.46.23:8080/',
+        target: "http://dev.mes-frontend.jscoe.cn/",
+        changeOrigin: true,
+        secure: false,
+      },
+    },
   },
   css: {},
   plugins: [

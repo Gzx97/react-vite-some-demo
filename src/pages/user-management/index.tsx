@@ -1,6 +1,7 @@
 import { Table, type TableProps } from "antd";
 import EditButton from "./components/edit-button";
-import { useUserList } from "./api";
+import { fetchUserList } from "./api";
+import { useRequest } from "@/utils/useRequest";
 
 interface DataType {
   key: string;
@@ -48,7 +49,9 @@ const columns: TableProps<DataType>["columns"] = [
 ];
 
 export default function UserManagement() {
-  const { data, isFetching } = useUserList();
+  const { data, loading } = useRequest(fetchUserList, {
+    manual: false,
+  });
 
-  return <Table columns={columns} dataSource={data} loading={isFetching} pagination={false} rowKey="id" />;
+  return <Table columns={columns} dataSource={data} loading={loading} pagination={false} rowKey="id" />;
 }
