@@ -22,6 +22,7 @@ export interface UserInfo {
 export const login = (params: LoginParams, config?: RequestConfig): Promise<UserInfo> => {
   return post<UserInfo>(`${baseUri}/sign-in/account`, params, {
     ...config,
+    showError: true,
   });
 };
 

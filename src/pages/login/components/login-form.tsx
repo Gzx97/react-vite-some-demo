@@ -13,24 +13,17 @@ type FieldType = {
 export default function LoginForm() {
   const navigate = useNavigate();
 
-  // const { isPending, mutate: onLogin } = useMutation({
-  //   mutationFn: (params: FieldType) => login(params),
-  //   onSuccess: () => {},
-  //   onError: () => {},
-  // });
   const { run: onLogin, loading } = useRequest(login, {
     manual: true,
+    onSuccess(data, params) {
+      localStorage.setItem("token", "token");
+      navigate(ROUTE_PATHS.landing);
+    },
   });
   const onFinish: FormProps<FieldType>["onFinish"] = (values) => {
     if (loading) return;
     onLogin(values);
     navigate(ROUTE_PATHS.landing);
-    setTimeout(() => {
-      window.$notification?.success({
-        message: "登录成功",
-        description: "欢迎回来",
-      });
-    }, 300);
   };
 
   const onFinishFailed: FormProps<FieldType>["onFinishFailed"] = (errorInfo) => {

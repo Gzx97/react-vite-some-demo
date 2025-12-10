@@ -6,8 +6,8 @@ import axios, {
   InternalAxiosRequestConfig,
 } from "axios";
 import { RequestConfig, ApiResponse, RepeatRequestItem } from "./types";
+import { message } from "antd";
 
-// ========================= 基础配置 =========================
 // 创建 Axios 实例
 const service: AxiosInstance = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL, // 从环境变量读取基础地址
@@ -17,7 +17,6 @@ const service: AxiosInstance = axios.create({
   },
 });
 
-// ========================= 重复请求处理 =========================
 // 存储正在进行的请求（用于取消重复请求）
 const pendingRequests = new Map<string, RepeatRequestItem>();
 
@@ -96,7 +95,7 @@ service.interceptors.response.use(
     // HTTP 状态码校验（2xx 视为成功）
     if (status < 200 || status >= 300) {
       if (config.showError !== false) {
-        // showToast(`请求失败：${status}`, "error");
+        message.error(`请求失败：${status}`);
       }
       return Promise.reject(new Error(`HTTP 错误：${status}`));
     }
@@ -105,12 +104,12 @@ service.interceptors.response.use(
     if (data.code !== 200) {
       // 特殊状态码处理（如 Token 过期、无权限等）
       if (data.code === 401) {
-        // showToast("登录已过期，请重新登录", "error");
+        message.error("登录状态已过期，请重新登录");
         // 清除 Token 并跳转到登录页
         localStorage.removeItem("token");
         window.location.href = "/login";
       } else if (config.showError !== false) {
-        // showToast(data.message || "请求失败", "error");
+        message.error(data.message);
       }
       return Promise.reject(new Error(data.message || `业务错误：${data.code}`));
     }
@@ -135,7 +134,7 @@ service.interceptors.response.use(
     // 网络错误
     if (!error.response) {
       if (config?.showError !== false) {
-        // showToast("网络错误，请检查网络连接", "error");
+        message.error("网络连接错误");
       }
       return Promise.reject(new Error("网络错误"));
     }
@@ -143,7 +142,7 @@ service.interceptors.response.use(
     // 后端返回的错误
     const { status, data } = error.response;
     if (config?.showError !== false) {
-      // showToast(data?.message || `请求失败：${status}`, "error");
+      message.error(data?.message || `请求失败：${status}`);
     }
     return Promise.reject(error);
   },

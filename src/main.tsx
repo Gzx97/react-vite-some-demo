@@ -7,28 +7,13 @@ import App from "./App";
 import "./styles/index.css";
 import "./styles/light.css";
 import "./styles/dark.css";
-import "@xyflow/react/dist/style.css";
 import "./i18n";
-
-// const queryClient = new QueryClient({
-//   defaultOptions: {
-//     queries: {
-//       staleTime: 10_000, // 数据变得 "陈旧"（stale）的时间 10s
-//       refetchOnWindowFocus: false, // 窗口聚焦时重新获取数据
-//       refetchOnReconnect: false, // 网络重新连接时重新获取数据
-//       retry: false, // 失败时重试
-//     },
-//   },
-// });
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <ErrorBoundary>
       <HelmetProvider>
-        {/* <QueryClientProvider client={queryClient}> */}
         <App />
-        {/* <ReactQueryDevtools initialIsOpen={false} /> */}
-        {/* </QueryClientProvider> */}
       </HelmetProvider>
     </ErrorBoundary>
   </StrictMode>,

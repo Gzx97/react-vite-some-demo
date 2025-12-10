@@ -1,7 +1,7 @@
 import { Table, type TableProps } from "antd";
 import EditButton from "./components/edit-button";
 import { fetchUserList } from "./api";
-import { useRequest } from "@/utils/useRequest";
+import { useRequest } from "ahooks";
 
 interface DataType {
   key: string;

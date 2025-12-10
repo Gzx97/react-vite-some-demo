@@ -2,9 +2,7 @@ import { useEffect } from "react";
 import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
 import { Button, Flex, Layout } from "antd";
 import { AppHelmet } from "@/components/helmet";
-import { ThemeSwitch } from "@/components/theme-switch";
 import Breadcrumb from "./components/bread-crumb";
-import CustomSkin from "./components/custom-skin";
 import Content from "./components/main-content";
 import SiderBar from "./components/sider-bar";
 import UserAvatar from "./components/user-avatar";
@@ -13,7 +11,7 @@ import { useTranslation } from "react-i18next";
 
 export default function MainLayout() {
   const { collapsed } = useSettingsStore(useSelector(["collapsed"]));
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
 
   const toggleLanguage = async () => {
     const currentLang = i18n.language;
@@ -62,11 +60,11 @@ export default function MainLayout() {
             />
             <Breadcrumb />
             <Flex gap={12} className="ml-auto items-center">
-              <button onClick={toggleLanguage} className="">
+              {/* <button onClick={toggleLanguage} className="">
                 {i18n.language === "zh" ? "EN" : "中文"}
               </button>
               <CustomSkin />
-              <ThemeSwitch />
+              <ThemeSwitch /> */}
               <UserAvatar />
             </Flex>
           </Layout.Header>

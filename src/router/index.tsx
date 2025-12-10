@@ -1,15 +1,6 @@
 import { createBrowserRouter, Navigate, type RouteObject } from "react-router-dom";
 import { ProgressBar } from "@/components/progress-bar";
-import {
-  landingRoute,
-  nestMenuRoute,
-  pointConfigRoute,
-  ROUTE_PATHS,
-  sortTreeTableRoute,
-  threeRoute,
-  treeMenuSelectRoute,
-  userManagerRoute,
-} from "./route.constants";
+import { landingRoute, nestMenuRoute, ROUTE_PATHS, userManagerRoute } from "./route.constants";
 
 const routes: RouteObject[] = [
   {
@@ -33,10 +24,6 @@ const routes: RouteObject[] = [
       landingRoute,
       userManagerRoute,
       nestMenuRoute,
-      sortTreeTableRoute,
-      treeMenuSelectRoute,
-      pointConfigRoute,
-      threeRoute,
     ],
   },
   {

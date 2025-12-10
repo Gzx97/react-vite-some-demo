@@ -9,15 +9,6 @@ export const ROUTE_PATHS = {
   nestMenu: "/nest-menu",
   subMenu1: "/nest-menu/sub-menu-1",
   subMenu2: "/nest-menu/sub-menu-2",
-  sortTreeTable: "/sort-tree-table",
-  treeMenuSelect: "/tree-menu-select",
-  echartsDemo: "/echarts-demo",
-
-  pointConfig: "/point-config",
-  pointConfigSettingPage: "/point-config/setting-page",
-  pointConfigViewPage: "/point-config/view-page",
-  three: "/three",
-  threeCameraPoseVisualizer: "/three/camera-pose-visualizer",
 };
 
 export const landingRoute: RouteObject = {
@@ -28,18 +19,6 @@ export const landingRoute: RouteObject = {
   HydrateFallback: ProgressBar,
   handle: {
     title: "首页",
-  },
-};
-
-export const echartsDemoRoute: RouteObject = {
-  path: ROUTE_PATHS.echartsDemo,
-  lazy: async () => ({
-    Component: (await import("@/pages/echarts-demo/layout")).default,
-  }),
-  HydrateFallback: ProgressBar,
-  handle: {
-    title: "Echarts Demo",
-    crumb: () => <Link to={ROUTE_PATHS.echartsDemo}>Echarts Demo</Link>,
   },
 };
 
@@ -87,66 +66,6 @@ export const nestMenuRoute: RouteObject = {
   ],
 };
 
-export const pointConfigRoute: RouteObject = {
-  path: ROUTE_PATHS.pointConfig,
-  lazy: async () => ({
-    Component: () => <Outlet />,
-  }),
-  HydrateFallback: ProgressBar,
-  handle: {
-    title: "点位配置",
-    crumb: () => "点位配置",
-  },
-  children: [
-    {
-      path: ROUTE_PATHS.pointConfigSettingPage,
-      lazy: async () => ({
-        Component: (await import("@/pages/point-config/setting-page")).default,
-      }),
-      HydrateFallback: ProgressBar,
-      handle: {
-        title: "点位配置",
-        crumb: () => <Link to={ROUTE_PATHS.pointConfigSettingPage}>点位配置</Link>,
-      },
-    },
-    {
-      path: ROUTE_PATHS.pointConfigViewPage,
-      lazy: async () => ({
-        Component: (await import("@/pages/point-config/view-page")).default,
-      }),
-      HydrateFallback: ProgressBar,
-      handle: {
-        title: "点位展示",
-        crumb: () => <Link to={ROUTE_PATHS.pointConfigViewPage}>点位展示</Link>,
-      },
-    },
-  ],
-};
-
-export const sortTreeTableRoute: RouteObject = {
-  path: ROUTE_PATHS.sortTreeTable,
-  lazy: async () => ({
-    Component: (await import("@/pages/sort-table-tree/layout")).default,
-  }),
-  HydrateFallback: ProgressBar,
-  handle: {
-    title: "sortTreeTable",
-    crumb: () => <Link to={ROUTE_PATHS.sortTreeTable}>sortTreeTable</Link>,
-  },
-};
-
-export const treeMenuSelectRoute: RouteObject = {
-  path: ROUTE_PATHS.treeMenuSelect,
-  lazy: async () => ({
-    Component: (await import("@/pages/tree-menu-select/layout")).default,
-  }),
-  HydrateFallback: ProgressBar,
-  handle: {
-    title: "sortTreeTable",
-    crumb: () => <Link to={ROUTE_PATHS.treeMenuSelect}>树形选择器</Link>,
-  },
-};
-
 export const userManagerRoute: RouteObject = {
   path: ROUTE_PATHS.userManagement,
   lazy: async () => ({
@@ -157,29 +76,4 @@ export const userManagerRoute: RouteObject = {
     title: "用户管理",
     crumb: () => <Link to={ROUTE_PATHS.userManagement}>用户管理</Link>,
   },
-};
-
-export const threeRoute: RouteObject = {
-  path: ROUTE_PATHS.three,
-  lazy: async () => ({
-    Component: () => <Outlet />,
-  }),
-  HydrateFallback: ProgressBar,
-  handle: {
-    title: "THREE DEMO",
-    crumb: () => "THREE DEMO",
-  },
-  children: [
-    {
-      path: ROUTE_PATHS.threeCameraPoseVisualizer,
-      lazy: async () => ({
-        Component: (await import("@/pages/three/camera-pose-visualizer")).default,
-      }),
-      HydrateFallback: ProgressBar,
-      handle: {
-        title: "相机捕获",
-        crumb: () => <Link to={ROUTE_PATHS.threeCameraPoseVisualizer}>相机捕获</Link>,
-      },
-    },
-  ],
 };
