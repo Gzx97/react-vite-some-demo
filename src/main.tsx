@@ -8,6 +8,7 @@ import "./styles/index.css";
 import "./styles/light.css";
 import "./styles/dark.css";
 import "@xyflow/react/dist/style.css";
+import "./i18n";
 
 // const queryClient = new QueryClient({
 //   defaultOptions: {

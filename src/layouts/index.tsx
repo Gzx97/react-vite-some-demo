@@ -9,9 +9,23 @@ import Content from "./components/main-content";
 import SiderBar from "./components/sider-bar";
 import UserAvatar from "./components/user-avatar";
 import { setCollapsed, useSelector, useSettingsStore } from "@/stores";
+import { useTranslation } from "react-i18next";
 
 export default function MainLayout() {
   const { collapsed } = useSettingsStore(useSelector(["collapsed"]));
+  const { t, i18n } = useTranslation();
+
+  const toggleLanguage = async () => {
+    const currentLang = i18n.language;
+    const newLang = currentLang === "zh" ? "en" : "zh";
+    try {
+      await i18n.changeLanguage(newLang);
+      document.documentElement.lang = newLang;
+      console.log("语言切换成功，html lang已更新：", document.documentElement.lang);
+    } catch (error) {
+      console.error("语言切换失败：", error);
+    }
+  };
 
   // 设置header阴影
   useEffect(() => {
@@ -48,6 +62,9 @@ export default function MainLayout() {
             />
             <Breadcrumb />
             <Flex gap={12} className="ml-auto items-center">
+              <button onClick={toggleLanguage} className="">
+                {i18n.language === "zh" ? "EN" : "中文"}
+              </button>
               <CustomSkin />
               <ThemeSwitch />
               <UserAvatar />
