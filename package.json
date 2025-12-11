@@ -4,11 +4,6 @@
   "version": "0.0.0",
   "type": "module",
   "packageManager": "pnpm@9.12.1",
-  "engines": {
-    "pnpm": ">=9.0.0",
-    "npm": ">=999.999.999",
-    "yarn": ">=999.999.999"
-  },
   "scripts": {
     "dev": "vite",
     "build": "rm -f tsconfig.app.tsbuildinfo tsconfig.node.tsbuildinfo && vite build --base=/react-vite-some-demo",
@@ -17,7 +12,8 @@
     "format": "prettier --write \"**/*.{ts,tsx,js,json,css,less}\"",
     "check:types": "tsc --build --noEmit",
     "preview": "vite preview",
-    "prepare": "husky"
+    "prepare": "husky",
+    "preinstall": "npx only-allow pnpm"
   },
   "dependencies": {
     "@ant-design/cssinjs": "^1.22.0",

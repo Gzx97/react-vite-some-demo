@@ -42,5 +42,8 @@
     "tanstack",
     "tseslint",
     "zustand"
+  ],
+  "i18n-ally.localesPaths": [
+    "src/locales"
   ]
 }
